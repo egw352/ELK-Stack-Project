@@ -2,7 +2,7 @@
 ## Step 1: Create a New vNet
 - Navigate to [Your Azure Portal](https://www.portal.azure.com)
 -  Select "Virtual networks" from the Azure services carousel
-![](VirtualNetworkSelection.png)
+![](Images/VirtualNetworkSelection.png)
     - Make sure the new vNet is in the same resource group as your other vNet.
     - Leave the settings at default.
 - Create a Peer connection between your vNets
@@ -10,7 +10,7 @@
     - Click the Add button, select the vNet to peer, and fill out peering names.
         - Note that these names should reflect vNet flow (i.e. vnet1-to-vnet2).
     - Once you select okay, your Peerings page should look similar to this:
-    ![](Peerings.png)
+    ![](![](Images/Peerings.png))
 ## Step 2: Creating a New VM
 - Our ELK server VM will need 4GB of RAM to run properly.
 - The VM needs a public IP address.
@@ -20,6 +20,7 @@
 
 ## Step 3: Downloading and Configuring the Container
 ### Launch the ansible container, and add the new VM to Ansible's hosts file.
+#### View the hosts file by clicking [here.](.\Ansible\hosts)
      cd /etc/anisble <- navigate to the ansible directory
      
      
@@ -45,7 +46,7 @@
     ansible_python_interpreter=/usr/bin/python3
 
 ### Create a Playbook that Installs Docker and Configures the Container
-#### View the install-docker playbook by clicking [here.](.\ELK-Stack-Project\Part-1\Ansible\Playbooks\install-docker.yml)
+#### View the install-docker playbook by clicking [here.](.\Ansible\Playbooks\install-docker.yml)
 
     sudo nano install-docker.yml    <- Create docker installation playbook
     
@@ -91,6 +92,7 @@
 - Run `ansible-playbook install-ansible.yml` and the new VM should now have Docker installed!
 
 ### Create a Playbook that installs and configures ELK
+#### View the install-elk playbook by clicking [here.](.\Ansible\Playbooks\install-elk.yml)
     sudo nano install-elk.yml   <- create a blank playbook.
     
     ---
