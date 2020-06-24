@@ -6,7 +6,9 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ansible file may be used to install only certain pieces of it, such as Filebeat.
 
-  - Click [here](./Ansible/install-elk.yml) to view the install-elk.yml.
+  - Click [here](./Ansible/elk-and-filebeat.yml) to view the ansible playbook for both.
+  
+To run only the elk setup, execute ansible-playbook elk-and-filebeat.yml --tags "elk". Similarly, to run only the filebeat setup, execute ansible-playbook elk-and-filebeat.yml --tags "filebeat"
 
 This document contains the following details:
 - Description of the Topology
