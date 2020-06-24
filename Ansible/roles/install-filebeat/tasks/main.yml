@@ -1,0 +1,29 @@
+---
+- name: download filebeat deb
+  command: sudo curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.8.0-amd64.deb
+  args:
+    warn: false
+
+- name: install filebeat deb
+  command: sudo dpkg --force-confold -i filebeat-7.8.0-amd64.deb
+
+- name: drop in filebeat.yml
+  copy:
+   src: /etc/ansible/files/filebeat-config.yml
+   dest: /etc/filebeat/filebeat.yml
+  become: yes
+
+- name: enable and configure system module
+  command: sudo filebeat modules enable system
+  args:
+    warn: false
+
+- name: run filebeat setup
+  command: sudo filebeat setup
+  args:
+    warn: false
+
+- name: start filebeat
+  command: sudo filebeat -e
+  args:
+    warn: false

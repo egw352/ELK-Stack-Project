@@ -1,0 +1,12 @@
+---
+- hosts: elk
+  remote_user: AzureUser
+  roles: 
+    - install-elk
+  tags: elk 
+
+- hosts: webservers
+  remote_user: AzureAdmin
+  roles:
+    - install-filebeat
+  tags: filebeat
